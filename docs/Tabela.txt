@@ -1,0 +1,484 @@
+0: {
+ FUNCTION   : (Empilha, 2)
+ <FUNCTION> : (GOTO, 1)
+}
+
+1: {
+ $ : (Aceito)
+}
+
+2: {
+ ID : (Empilha, 3)
+}
+
+3: {
+ ABRE_PAR : (Empilha, 4)
+}
+
+4: {
+ INT       : (Empilha, 61)
+ FLOAT     : (Empilha, 61)
+ FECHA_PAR : (Reduz, 27)
+
+ <TIPO>                 : (GOTO, 5)
+ <FUNC_PARAMETRO>       : (GOTO, 7)
+ <FUNC_LISTA_PARAMETRO> : (GOTO, 8)
+ <FUNC_BLOCO_PARAMETRO> : (GOTO, 11)
+}
+
+5: {
+ ID : (Empilha, 6)
+}
+
+6: {
+ VIRGULA   : (Reduz, 2)
+ FECHA_PAR : (Reduz, 2)
+}
+
+7: {
+ VIRGULA   : (Reduz, 3)
+ FECHA_PAR : (Reduz, 3)
+}
+
+8: {
+ VIRGULA   : (Empilha, 9)
+ FECHA_PAR : (Reduz, 4)
+}
+
+9: {
+ INT   : (Empilha, 61)
+ FLOAT : (Empilha, 61)
+
+ <TIPO>           : (GOTO, 5)
+ <FUNC_PARAMETRO> : (GOTO, 10)
+}
+
+10: {
+ VIRGULA   : (Reduz, 5)
+ FECHA_PAR : (Reduz, 5)
+}
+
+11: {
+ FECHA_PAR : (Empilha, 12)
+}
+
+12: {
+ ABRE_BLOCO : (Empilha, 13)
+}
+
+13: {
+ INT         : (Empilha, 61)
+ FLOAT       : (Empilha, 61)
+ ID          : (Empilha, 21)
+ PRINT       : (Empilha, 31)
+ IF          : (Empilha, 38)
+ WHILE       : (Empilha, 52)
+ FECHA_BLOCO : (Reduz, 28)
+
+ <TIPO>        : (GOTO, 16)
+ <DECLARA_VAR> : (GOTO, 19)
+ <ATRIB>       : (GOTO, 29)
+ <IMPRIME>     : (GOTO, 36)
+ <SEL_IF>      : (GOTO, 45)
+ <ENQUANTO>    : (GOTO, 59)
+ <LISTA_BLOCO> : (GOTO, 14)
+}
+
+14: {
+ INT         : (Empilha, 61)
+ FLOAT       : (Empilha, 61)
+ ID          : (Empilha, 21)
+ PRINT       : (Empilha, 31)
+ IF          : (Empilha, 38)
+ WHILE       : (Empilha, 52)
+ FECHA_BLOCO : (Empilha, 15)
+
+ <TIPO>        : (GOTO, 16)
+ <DECLARA_VAR> : (GOTO, 20)
+ <ATRIB>       : (GOTO, 30)
+ <IMPRIME>     : (GOTO, 37)
+ <SEL_IF>      : (GOTO, 46)
+ <ENQUANTO>    : (GOTO, 60)
+}
+
+15: {
+ $ : (Reduz, 1)
+}
+
+16: {
+ ID : (Empilha, 17)
+}
+
+17: {
+ PONTO_VIRGULA : (Empilha, 18)
+}
+
+18: {
+ INT   : (Reduz, 6)
+ FLOAT : (Reduz, 6)
+ ID    : (Reduz, 6)
+ PRINT : (Reduz, 6)
+ IF    : (Reduz, 6)
+ WHILE : (Reduz, 6)
+ FECHA_BLOCO : (Reduz, 6)
+}
+
+19: {
+ INT   : (Reduz, 7)
+ FLOAT : (Reduz, 7)
+ ID    : (Reduz, 7)
+ PRINT : (Reduz, 7)
+ IF    : (Reduz, 7)
+ WHILE : (Reduz, 7)
+ FECHA_BLOCO : (Reduz, 7)
+}
+
+20: {
+ INT   : (Reduz, 8)
+ FLOAT : (Reduz, 8)
+ ID    : (Reduz, 8)
+ PRINT : (Reduz, 8)
+ IF    : (Reduz, 8)
+ WHILE : (Reduz, 8)
+ FECHA_BLOCO : (Reduz, 8)
+}
+
+21: {
+ ATRIBUICAO : (Empilha, 22)
+}
+
+22: {
+ ID          : (Empilha, 27)
+ CONST_INT   : (Empilha, 27)
+ CONST_FLOAT : (Empilha, 27)
+
+ <VAR> : (GOTO, 23)
+}
+
+23: {
+ MENOS          : (Empilha, 28)
+ MAIS           : (Empilha, 28)
+ ASTERISTICO    : (Empilha, 28)
+ BARRA_ESQUERDA : (Empilha, 28)
+ PONTO_VIRGULA  : (Empilha, 24)
+
+ <VAR>          : (GOTO, 22)
+ <OPERACAO>     : (GOTO, 25)
+}
+
+24: {
+ INT   : (Reduz, 12)
+ FLOAT : (Reduz, 12)
+ ID    : (Reduz, 12)
+ PRINT : (Reduz, 12)
+ IF    : (Reduz, 12)
+ WHILE : (Reduz, 12)
+ FECHA_BLOCO : (Reduz, 12)
+}
+
+25: {
+ ID          : (Empilha, 27)
+ CONST_INT   : (Empilha, 27)
+ CONST_FLOAT : (Empilha, 27)
+
+ <VAR> : (GOTO, 26)
+}
+
+26: {
+ MENOS          : (Reduz, 11)
+ MAIS           : (Reduz, 11)
+ ASTERISTICO    : (Reduz, 11)
+ BARRA_ESQUERDA : (Reduz, 11)
+ PONTO_VIRGULA  : (Reduz, 11)
+}
+
+27: {
+ MENOS          : (Reduz, 9)
+ MAIS           : (Reduz, 9)
+ ASTERISTICO    : (Reduz, 9)
+ BARRA_ESQUERDA : (Reduz, 9)
+ PONTO_VIRGULA  : (Reduz, 9)
+}
+
+28: {
+ ID          : (Reduz, 10)
+ CONST_INT   : (Reduz, 10)
+ CONST_FLOAT : (Reduz, 10)
+}
+
+29: {
+ INT   : (Reduz, 13)
+ FLOAT : (Reduz, 13)
+ ID    : (Reduz, 13)
+ PRINT : (Reduz, 13)
+ IF    : (Reduz, 13)
+ WHILE : (Reduz, 13)
+ FECHA_BLOCO : (Reduz, 13)
+}
+
+30: {
+ INT   : (Reduz, 14)
+ FLOAT : (Reduz, 14)
+ ID    : (Reduz, 14)
+ PRINT : (Reduz, 14)
+ IF    : (Reduz, 14)
+ WHILE : (Reduz, 14)
+ FECHA_BLOCO : (Reduz, 14)
+}
+
+31: {
+ ABRE_PAR : (Empilha, 32)
+}
+
+32: {
+ ID : (Empilha, 33)
+}
+
+33: {
+ FECHA_PAR : (Empilha, 34)
+}
+
+34: {
+ PONTO_VIRGULA : (Empilha, 35)
+}
+
+35: {
+ INT   : (Reduz, 15)
+ FLOAT : (Reduz, 15)
+ ID    : (Reduz, 15)
+ PRINT : (Reduz, 15)
+ IF    : (Reduz, 15)
+ WHILE : (Reduz, 15)
+ FECHA_BLOCO : (Reduz, 15)
+}
+
+36: {
+ INT   : (Reduz, 16)
+ FLOAT : (Reduz, 16)
+ ID    : (Reduz, 16)
+ PRINT : (Reduz, 16)
+ IF    : (Reduz, 16)
+ WHILE : (Reduz, 16)
+ FECHA_BLOCO : (Reduz, 16)
+}
+
+37: {
+ INT   : (Reduz, 17)
+ FLOAT : (Reduz, 17)
+ ID    : (Reduz, 17)
+ PRINT : (Reduz, 17)
+ IF    : (Reduz, 17)
+ WHILE : (Reduz, 17)
+ FECHA_BLOCO : (Reduz, 17)
+}
+
+38: {
+ ABRE_PAR : (Empilha, 39)
+}
+
+39: {
+ ID          : (Empilha, 50)
+ CONST_INT   : (Empilha, 50)
+ CONST_FLOAT : (Empilha, 50)
+
+ <VAR_COMP>         : (GOTO, 47)
+ <COMP_CONDICIONAL> : (GOTO, 40)
+}
+
+40: {
+ FECHA_PAR : (Empilha, 41)
+}
+
+41: {
+ ABRE_BLOCO : (Empilha, 42)
+}
+
+42: {
+ INT         : (Empilha, 61)
+ FLOAT       : (Empilha, 61)
+ ID          : (Empilha, 21)
+ PRINT       : (Empilha, 31)
+ IF          : (Empilha, 38)
+ WHILE       : (Empilha, 52)
+ FECHA_BLOCO : (Reduz, 28)
+
+ <TIPO>        : (GOTO, 16)
+ <DECLARA_VAR> : (GOTO, 19)
+ <ATRIB>       : (GOTO, 29)
+ <IMPRIME>     : (GOTO, 36)
+ <SEL_IF>      : (GOTO, 45)
+ <ENQUANTO>    : (GOTO, 59)
+ <LISTA_BLOCO> : (GOTO, 43)
+}
+
+43: {
+ INT         : (Empilha, 61)
+ FLOAT       : (Empilha, 61)
+ ID          : (Empilha, 21)
+ PRINT       : (Empilha, 31)
+ IF          : (Empilha, 38)
+ WHILE       : (Empilha, 52)
+ FECHA_BLOCO : (Empilha, 44)
+
+ <TIPO>        : (GOTO, 16)
+ <DECLARA_VAR> : (GOTO, 20)
+ <ATRIB>       : (GOTO, 30)
+ <IMPRIME>     : (GOTO, 37)
+ <SEL_IF>      : (GOTO, 46)
+ <ENQUANTO>    : (GOTO, 60)
+}
+
+44: {
+ INT   : (Reduz, 18)
+ FLOAT : (Reduz, 18)
+ ID    : (Reduz, 18)
+ PRINT : (Reduz, 18)
+ IF    : (Reduz, 18)
+ WHILE : (Reduz, 18)
+ FECHA_BLOCO : (Reduz, 18)
+}
+
+45: {
+ INT   : (Reduz, 19)
+ FLOAT : (Reduz, 19)
+ ID    : (Reduz, 19)
+ PRINT : (Reduz, 19)
+ IF    : (Reduz, 19)
+ WHILE : (Reduz, 19)
+ FECHA_BLOCO : (Reduz, 19)
+}
+
+46: {
+ INT   : (Reduz, 20)
+ FLOAT : (Reduz, 20)
+ ID    : (Reduz, 20)
+ PRINT : (Reduz, 20)
+ IF    : (Reduz, 20)
+ WHILE : (Reduz, 20)
+ FECHA_BLOCO : (Reduz, 20)
+}
+
+47: {
+ MAIOR     : (Empilha, 51)
+ MENOR     : (Empilha, 51)
+ IGUALDADE : (Empilha, 51)
+ DIFERENTE : (Empilha, 51)
+
+ <COMPARADOR> : (GOTO, 48)
+}
+
+48: {
+ ID          : (Empilha, 50)
+ CONST_INT   : (Empilha, 50)
+ CONST_FLOAT : (Empilha, 50)
+
+ <VAR_COMP> : (GOTO, 49)
+}
+
+49: {
+ FECHA_PAR : (Reduz, 23)
+}
+
+50: {
+ MAIOR     : (Reduz, 21)
+ MENOR     : (Reduz, 21)
+ IGUALDADE : (Reduz, 21)
+ DIFERENTE : (Reduz, 21)
+ FECHA_PAR : (Reduz, 21)
+}
+
+51: {
+ ID          : (Reduz, 22)
+ CONST_INT   : (Reduz, 22)
+ CONST_FLOAT : (Reduz, 22)
+}
+
+52: {
+ ABRE_PAR : (Empilha, 53)
+}
+
+53: {
+ ID          : (Empilha, 50)
+ CONST_INT   : (Empilha, 50)
+ CONST_FLOAT : (Empilha, 50)
+
+ <VAR_COMP>         : (GOTO, 47)
+ <COMP_CONDICIONAL> : (GOTO, 54)
+}
+
+54: {
+ FECHA_PAR : (Empilha, 55)
+}
+
+55: {
+ ABRE_BLOCO : (Empilha, 56)
+}
+
+56: {
+ INT         : (Empilha, 61)
+ FLOAT       : (Empilha, 61)
+ ID          : (Empilha, 21)
+ PRINT       : (Empilha, 31)
+ IF          : (Empilha, 38)
+ WHILE       : (Empilha, 52)
+ FECHA_BLOCO : (Reduz, 28)
+
+ <TIPO>        : (GOTO, 16)
+ <DECLARA_VAR> : (GOTO, 19)
+ <ATRIB>       : (GOTO, 29)
+ <IMPRIME>     : (GOTO, 36)
+ <SEL_IF>      : (GOTO, 45)
+ <ENQUANTO>    : (GOTO, 59)
+ <LISTA_BLOCO> : (GOTO, 57)
+}
+
+57: {
+ INT         : (Empilha, 61)
+ FLOAT       : (Empilha, 61)
+ ID          : (Empilha, 21)
+ PRINT       : (Empilha, 31)
+ IF          : (Empilha, 38)
+ WHILE       : (Empilha, 52)
+ FECHA_BLOCO : (Empilha, 58)
+
+ <TIPO>        : (GOTO, 16)
+ <DECLARA_VAR> : (GOTO, 20)
+ <ATRIB>       : (GOTO, 30)
+ <IMPRIME>     : (GOTO, 37)
+ <SEL_IF>      : (GOTO, 46)
+ <ENQUANTO>    : (GOTO, 60)
+}
+
+58: {
+ INT   : (Reduz, 24)
+ FLOAT : (Reduz, 24)
+ ID    : (Reduz, 24)
+ PRINT : (Reduz, 24)
+ IF    : (Reduz, 24)
+ WHILE : (Reduz, 24)
+ FECHA_BLOCO : (Reduz, 24)
+}
+
+59: {
+ INT   : (Reduz, 25)
+ FLOAT : (Reduz, 25)
+ ID    : (Reduz, 25)
+ PRINT : (Reduz, 25)
+ IF    : (Reduz, 25)
+ WHILE : (Reduz, 25)
+ FECHA_BLOCO : (Reduz, 25)
+}
+
+60: {
+ INT   : (Reduz, 26)
+ FLOAT : (Reduz, 26)
+ ID    : (Reduz, 26)
+ PRINT : (Reduz, 26)
+ IF    : (Reduz, 26)
+ WHILE : (Reduz, 26)
+ FECHA_BLOCO : (Reduz, 26)
+}
+
+61: {
+ ID : (Reduz, 29)
+}
