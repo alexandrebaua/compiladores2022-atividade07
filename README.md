@@ -56,3 +56,11 @@ function x (float a, int b){
    print(t);
 }
 ```
+
+### Arquivos relacionados:
+- [Documentação (Gramática, estados, reduções e tabela)](docs)
+- [Formulário principal](Compilador/FormMain.cs)
+- [Diretório analizador léxico](Compilador/Lexico)
+- [Diretório analisador sintático](Compilador/Sintatico/Ascendente/SLR)
+- [Diretório analisador semântico](Compilador/Semantico)
+- [Arquivo executável](Compilador/bin/Debug/Compilador.exe)
